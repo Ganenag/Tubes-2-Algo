@@ -52,9 +52,9 @@ while (Pilihan != 0):
                 print("0. KELUAR")
 
         case 2 :
-            print("=============================================")
+            print("===========================================")
             print('2. ASET TAK BERWUJUD ( INTANGIABLE ASSETS )')
-            print("=============================================")
+            print("===========================================")
             print("1. Brand & Nama Usaha")
             print("2. Desain & Hak Cipta")
             print("3. Website & Sosial Media Marketing")
@@ -63,9 +63,9 @@ while (Pilihan != 0):
                 print('Nomor Aset Tak Berwujud tidak ada, Ulangi!')
                 os.system('pause')
                 os.system('cls')
-                print("=============================================")
+                print("===========================================")
                 print('2. ASET TAK BERWUJUD ( INTANGIABLE ASSETS )')
-                print("=============================================")
+                print("===========================================")
                 print("1. Brand & Nama Usaha")
                 print("2. Desain & Hak Cipta")
                 print("3. Website & Sosial Media Marketing")
