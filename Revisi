@@ -1,7 +1,0 @@
-#di line ...
-print('<< ASET PERUSAHAAN CLOTHES DREIELFOG >>')
-print('---------------------------------------')
-print('1. Aset Berwujud ( Tangiable Assets )')
-print('2. Aset Tak Berwujud ( Not Tangiable Asstes )')
-print('0. KELUAR')
-Pilihan = int(input('Pilihan Anda?  '))
