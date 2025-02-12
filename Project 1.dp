@@ -1,0 +1,15 @@
+[Project]
+FileName=C:\Dev-Pas\Program pascal\Project 1.dp
+Name=Project 1
+MainUnit=C:\Dev-Pas\Program pascal\AsetPerusahaan.pas
+UnitCount=1
+ResFiles=C:\Dev-Pas\Program pascal\rsrc.rc
+NoConsole=0
+IsDll=0
+Icon=C:\Dev-Pas\Icons\MAINICON.ICO
+CompilerOptions=
+IncludeDirs=
+ObjFile=
+[Unit1]
+FileName=C:\Dev-Pas\Program pascal\AsetPerusahaan.pas
+FileTime=1514953869
