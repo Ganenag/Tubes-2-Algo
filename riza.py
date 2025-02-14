@@ -701,6 +701,38 @@ def SubmenuIntangibleAssets():
 
     return PilihanSubIntangible
 
+# Subrutin menu
+def MenuBrand(intangible_assets):
+    while True:
+        os.system('cls')
+        print("===========================================")
+        print("<< BRAND & NAMA USAHA >>")
+        print("===========================================")
+        print("1. Tambah Brand/Nama Usaha")
+        print("2. Lihat Semua Brand/Nama Usaha")
+        print("3. Hapus Brand/Nama Usaha")
+        print("4. Urutkan Brand/Nama Usaha (Ascending)")
+        print("5. Cari Brand/Nama Usaha")
+        print("0. Kembali ke Menu Utama")
+        
+        pilihan = input("Pilihan Anda? ").strip()
+        
+        if pilihan == "0":
+            break
+        elif pilihan == "1":
+            TambahIntangibleAsset(intangible_assets)
+        elif pilihan == "2":
+            TraversalIntangibleAssets(intangible_assets)
+        elif pilihan == "3":
+            HapusIntangibleAsset(intangible_assets)
+        elif pilihan == "4":
+            UrutkanIntangibleAssets(intangible_assets)
+        elif pilihan == "5":
+            CariIntangibleAsset(intangible_assets)
+        else:
+            print("Pilihan tidak valid, coba lagi.")
+            input("Tekan Enter untuk melanjutkan...")
+
 #subrutin traversal aset tak berwujud
 def TraversalIntangibleAssets(IntangibleAssetsList):
     os.system('cls')
@@ -711,35 +743,83 @@ def TraversalIntangibleAssets(IntangibleAssetsList):
         print(f"{i+1}. {asset}")
     os.system('pause')
 
-#subrutin penambahan aset tak berwujud
-def TambahIntangibleAsset(IntangibleAssetsList):
+# Subrutin untuk menambahkan brand
+def TambahBrand(IntangibleAssetsList):
     os.system('cls')
     print("===========================================")
-    print('<< TAMBAH ASET TAK BERWUJUD >>')
+    print('<< TAMBAH BRAND >>')
     print("===========================================")
-    asset_type = int(input("Pilih jenis aset (1: Brand, 2: Karyawan): "))
+    brand_name = input("Masukkan nama brand: ").strip()
+    year_established = input("Masukkan tahun didirikan: ").strip()
+    description = input("Masukkan deskripsi brand: ").strip()
+    IntangibleAssetsList.append(f"Brand: {brand_name}, Tahun Didirikan: {year_established}, Deskripsi: {description}")
+    print(f'Brand "{brand_name}" berhasil ditambahkan!')
+    os.system('pause')
+
+# Subrutin untuk menambahkan website
+def TambahWebsite(MarketingAssetsList):
+    os.system('cls')
+    print("===========================================")
+    print('<< TAMBAH WEBSITE >>')
+    print("===========================================")
+    website_name = input("Masukkan nama website: ").strip()
+    url = input("Masukkan URL website: ").strip()
+    description = input("Masukkan deskripsi website: ").strip()
+    MarketingAssetsList.append(f"Website: {website_name}, URL: {url}, Deskripsi: {description}")
+    print(f'Website "{website_name}" berhasil ditambahkan!')
+    os.system('pause')
+
+# Subrutin untuk menambahkan social media
+def TambahSocialMedia(MarketingAssetsList):
+    os.system('cls')
+    print("===========================================")
+    print('<< TAMBAH SOCIAL MEDIA >>')
+    print("===========================================")
+    platform_name = input("Masukkan nama platform social media: ").strip()
+    account_name = input("Masukkan nama akun: ").strip()
+    followers = input("Masukkan jumlah pengikut: ").strip()
+    description = input("Masukkan deskripsi akun: ").strip()
+    MarketingAssetsList.append(f"Social Media: {platform_name}, Akun: {account_name}, Pengikut: {followers}, Deskripsi: {description}")
+    print(f'Akun social media "{account_name}" berhasil ditambahkan!')
+    os.system('pause')
+
+# Subrutin utama untuk menambahkan aset pemasaran
+def TambahMarketingAsset(MarketingAssetsList):
+    os.system('cls')
+    print("===========================================")
+    print('<< TAMBAH ASET PEMASARAN >>')
+    print("===========================================")
+    asset_type = int(input("Pilih jenis aset (1: Website, 2: Social Media): "))
     if asset_type == 1:
-        brand_name = input("Masukkan nama brand: ").strip()
-        year_established = input("Masukkan tahun didirikan: ").strip()
-        description = input("Masukkan deskripsi brand: ").strip()
-        IntangibleAssetsList.append(f"Brand: {brand_name}, Tahun Didirikan: {year_established}, Deskripsi: {description}")
-        print(f'Brand "{brand_name}" berhasil ditambahkan!')
+        TambahWebsite(MarketingAssetsList)
     elif asset_type == 2:
-        employee_name = input("Masukkan nama karyawan: ").strip()
-        employee_id = input("Masukkan NIP karyawan: ").strip()
-        position = input("Masukkan jabatan karyawan: ").strip()
-        salary = 0
-        if position.lower() == "intern":
-            salary = 3500000
-        elif position.lower() == "staff":
-            salary = 7000000
-        elif position.lower() == "manager":
-            salary = 15000000
-        IntangibleAssetsList.append(f"Karyawan: {employee_name}, NIP: {employee_id}, Jabatan: {position}, Gaji: {salary}")
-        print(f'Karyawan "{employee_name}" berhasil ditambahkan!')
+        TambahSocialMedia(MarketingAssetsList)
     else:
         print("Jenis aset tidak valid!")
-    os.system('pause')
+        os.system('pause')    
+
+# Subrutin untuk menambahkan karyawan
+def TambahKaryawan(IntangibleAssetsList):
+    os.system('cls')
+    print("===========================================")
+    print('<< TAMBAH KARYAWAN >>')
+    print("===========================================")
+    employee_name = input("Masukkan nama karyawan: ").strip()
+    employee_id = input("Masukkan NIP karyawan: ").strip()
+    position = input("Masukkan jabatan karyawan: ").strip()
+    salary = 0
+    if position.lower() == "intern":
+        salary = 3500000
+    elif position.lower() == "staff":
+        salary = 7000000
+    elif position.lower() == "manager":
+        salary = 15000000
+    else:
+        print("Jabatan tidak valid! Gaji akan diatur ke 0.")
+    
+    IntangibleAssetsList.append(f"Karyawan: {employee_name}, NIP: {employee_id}, Jabatan: {position}, Gaji: {salary}")
+    print(f'Karyawan "{employee_name}" berhasil ditambahkan!')
+    os.system('pause')    
 
 #subrutin penghapusan aset tak berwujud
 def HapusIntangibleAsset(IntangibleAssetsList):
@@ -770,6 +850,21 @@ def UrutkanIntangibleAssets(IntangibleAssetsList):
         IntangibleAssetsList[i], IntangibleAssetsList[min_index] = IntangibleAssetsList[min_index], IntangibleAssetsList[i]
     print("Aset tak berwujud berhasil diurutkan!")
     os.system('pause')
+
+# Subrutin utama untuk menambahkan aset tak berwujud
+def TambahIntangibleAsset(IntangibleAssetsList):
+    os.system('cls')
+    print("===========================================")
+    print('<< TAMBAH ASET TAK BERWUJUD >>')
+    print("===========================================")
+    asset_type = int(input("Pilih jenis aset (1: Brand, 2: Karyawan): "))
+    if asset_type == 1:
+        TambahBrand(IntangibleAssetsList)
+    elif asset_type == 2:
+        TambahKaryawan(IntangibleAssetsList)
+    else:
+        print("Jenis aset tidak valid!")
+        os.system('pause')
 
 #subrutin pencarian aset tak berwujud menggunakan sequential search
 def CariIntangibleAsset(IntangibleAssetsList):
@@ -925,30 +1020,23 @@ while (Pilihan != 0):
                 match (PilihanIntangible):
                     case 1:
                         print("Brand & Nama Usaha")
+                        TambahBrand(IntangibleAssetsList)
                         os.system('pause')
                     case 2:
                         print("Website & Sosial Media (Marketing)")
+                        TambahSocialMedia(IntangibleAssetsList)
+                        TambahMarketingAsset(IntangibleAssetsList)
                         os.system('pause')
                     case 3:
                         print("Database Karyawan")
+                        TambahKaryawan(IntangibleAssetsList)
                         os.system('pause')
                     case 4:
-                        PilihanSubIntangible = 0
-                        PilihanSubIntangible = SubmenuIntangibleAssets()
-                        while (PilihanSubIntangible != 0):
-                            os.system('cls')
-                            match (PilihanSubIntangible):
-                                case 1:
-                                    TambahIntangibleAsset(IntangibleAssetsList)
-                                case 2:
-                                    HapusIntangibleAsset(IntangibleAssetsList)
-                                case 3:
-                                    UrutkanIntangibleAssets(IntangibleAssetsList)
-                                    CariIntangibleAsset(IntangibleAssetsList)
-                                case 4:
-                                    HancurkanIntangibleAssets(IntangibleAssetsList)
-                            os.system('cls')
-                            PilihanSubIntangible = SubmenuIntangibleAssets()
+                        TambahIntangibleAsset(IntangibleAssetsList)
+                        UrutkanIntangibleAssets(IntangibleAssetsList)
+                        CariIntangibleAsset(IntangibleAssetsList)
+                        HapusIntangibleAsset(IntangibleAssetsList)
+                        HancurkanIntangibleAssets(IntangibleAssetsList)
                 os.system('cls')
                 PilihanIntangible = IntangibleAssets(PilihanIntangible)
             
